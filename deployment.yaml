@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: course-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: course-app
+  template:
+    metadata:
+      labels:
+        app: course-app
+    spec:
+      containers:
+        - name: course-app
+          image: australia-southeast1-docker.pkg.dev/sit737-25t1-kumar-7da4409/course-app-deployment/course-app:latest
+          ports:
+            - containerPort: 3000
